@@ -242,10 +242,16 @@ MANDATORY_OPCODES_3_4_BASIC_GATES = [
 OPCODES_SET0 = [
     build_cell(name="c_inv1_", area=1, inputs=["A"], outputs={"Y1": ["(!A)", "A"]}),
     #build_cell(name="c_nand2_", area=1, inputs=["A", "B"], outputs={"Y1": ["(!A)|(!B)", "A B"]}),
-    #build_cell(name="c_and2_", area=1, inputs=["A", "B"], outputs={"Y1": ["(A)&(B)", "A B"]}),
-    #build_cell(name="c_or2_", area=1, inputs=["A", "B"], outputs={"Y1": ["(A)|(B)", "A B"]}),
+    build_cell(name="c_and2_", area=1, inputs=["A", "B"], outputs={"Y1": ["(A)&(B)", "A B"]}),
+    build_cell(name="c_or2_", area=1, inputs=["A", "B"], outputs={"Y1": ["(A)|(B)", "A B"]}),
     build_cell(name="c_nor2_", area=1, inputs=["A", "B"], outputs={"Y1": ["(!A)&(!B)", "A B"]}),
-    
+    #build_cell(name="c_nor3_", area=1, inputs=["A", "B", "C"], outputs={"Y1": ["(!A)&(!B)&(!C)", "A B C"]}),#, rise=1, fall=1),
+    #build_cell(name="c_nor4_", area=1, inputs=["A", "B", "C", "D"], outputs={"Y1": ["(!A)&(!B)&(!C)&(!D)", "A B C D"]}),#, rise=1, fall=1),
+    #build_cell(name="c_and3_", area=1, inputs=["A", "B", "C"], outputs={"Y1": ["(A)&(B)&(C)", "A B C"]}),
+    #build_cell(name="c_and4_", area=1, inputs=["A", "B", "C", "D"], outputs={"Y1": ["(A)&(B)&(C)&(D)", "A B C D"]}),
+    #build_cell(name="c_or3_", area=1, inputs=["A", "B", "C"], outputs={"Y1": ["(A)|(B)|(C)", "A B C"]}),
+    #build_cell(name="c_or4_", area=1, inputs=["A", "B", "C", "D"], outputs={"Y1": ["(A)|(B)|(C)|(D)", "A B C D"]}),
+
 ]
 
 OPCODES_SET1 = [

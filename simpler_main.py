@@ -46,8 +46,8 @@ def main():
         copyfile("syn_output_path2.v", "syn_res_dir/%s_%d.v" % (ntpath.basename(path), synopsys_dc.SyntSet.set0.value-1))
         
         # Mapping into the memory array
-        #SIMPLER_Mapping.SIMPLER_Main([abc_output_path], Max_num_gates, ROW_SIZE, input_path.split(".")[0], generate_json, print_mapping, print_warnings)
-        SIMPLER_Mapping.SIMPLER_Main(["syn_output_path3.v"], Max_num_gates, ROW_SIZE, path.split(".")[0], generate_json, print_mapping, print_warnings)
+        #SIMPLER_Mapping.SIMPLER_Main([syn_output_path], Max_num_gates, ROW_SIZE, input_path.split(".")[0], generate_json, print_mapping, print_warnings)
+        SIMPLER_Mapping.SIMPLER_Main(["syn_output_path2.v"], Max_num_gates, ROW_SIZE, path.split(".")[0], generate_json, print_mapping, print_warnings)
             
 
         # Clean files

@@ -1,0 +1,164 @@
+
+library(op_cond_all) {
+  technology (cmos) ;
+  delay_model : cmos2;
+  time_unit : 1ns ;
+  voltage_unit : 1V ;
+  current_unit : 1mA ;
+  capacitive_load_unit(1, pf);
+  pulling_resistance_unit : 1ohm ;
+  default_inout_pin_cap : 1.0 ;
+  default_input_pin_cap : 1.0 ;
+  default_output_pin_cap : 1.0 ;
+  default_fanout_load : 10 ;
+  
+  leakage_power_unit : 1uW ;
+  input_threshold_pct_fall : 50 ;
+  input_threshold_pct_rise : 50 ;
+  output_threshold_pct_fall : 50 ;
+  output_threshold_pct_rise : 50 ;
+  slew_derate_from_library : 0.75 ;
+  slew_lower_threshold_pct_fall : 20 ;
+  slew_lower_threshold_pct_rise : 20 ;
+  slew_upper_threshold_pct_fall : 80 ;
+  slew_upper_threshold_pct_rise : 80 ;
+  in_place_swap_mode : match_footprint ;
+  nom_process : 1 ;
+  nom_temperature : 25 ;
+  nom_voltage : 1.1 ;
+  default_cell_leakage_power : 0 ;
+  default_leakage_power_density : 0 ;
+  default_intrinsic_rise : 0;
+  default_intrinsic_fall : 0;
+  
+  wire_load("zero") {
+resistance : 0;
+capacitance : 0;
+area : 1;
+slope : 1;
+fanout_length(1,2000);
+}
+
+
+cell(c_inv1_) {
+    area : 1;
+    dont_use : false;
+    
+pin(A) {
+      capacitance : 1.0 ;
+      direction : input ;
+    }
+
+    
+    
+pin(Y1) {
+    direction : output ;
+    function : "(!A)" ;
+    capacitance : 1.0 ;
+
+    timing() {
+      intrinsic_rise : 0 ;
+      intrinsic_fall : 0 ;
+      related_pin : "A" ;
+    }
+}
+
+}
+
+
+cell(c_and2_) {
+    area : 1;
+    dont_use : false;
+    
+pin(A) {
+      capacitance : 1.0 ;
+      direction : input ;
+    }
+
+
+pin(B) {
+      capacitance : 1.0 ;
+      direction : input ;
+    }
+
+    
+    
+pin(Y1) {
+    direction : output ;
+    function : "(A)&(B)" ;
+    capacitance : 1.0 ;
+
+    timing() {
+      intrinsic_rise : 0 ;
+      intrinsic_fall : 0 ;
+      related_pin : "A B" ;
+    }
+}
+
+}
+
+
+cell(c_or2_) {
+    area : 1;
+    dont_use : false;
+    
+pin(A) {
+      capacitance : 1.0 ;
+      direction : input ;
+    }
+
+
+pin(B) {
+      capacitance : 1.0 ;
+      direction : input ;
+    }
+
+    
+    
+pin(Y1) {
+    direction : output ;
+    function : "(A)|(B)" ;
+    capacitance : 1.0 ;
+
+    timing() {
+      intrinsic_rise : 0 ;
+      intrinsic_fall : 0 ;
+      related_pin : "A B" ;
+    }
+}
+
+}
+
+
+cell(c_nor2_) {
+    area : 1;
+    dont_use : false;
+    
+pin(A) {
+      capacitance : 1.0 ;
+      direction : input ;
+    }
+
+
+pin(B) {
+      capacitance : 1.0 ;
+      direction : input ;
+    }
+
+    
+    
+pin(Y1) {
+    direction : output ;
+    function : "(!A)&(!B)" ;
+    capacitance : 1.0 ;
+
+    timing() {
+      intrinsic_rise : 0 ;
+      intrinsic_fall : 0 ;
+      related_pin : "A B" ;
+    }
+}
+
+}
+
+}
