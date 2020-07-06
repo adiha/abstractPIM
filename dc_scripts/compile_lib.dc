@@ -1,0 +1,4 @@
+enable_write_lib_mode
+read_lib libs/gate_subset.lib
+write_lib op_cond_all -format db -output libs/op_cond_all.db
+exit

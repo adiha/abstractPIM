@@ -1,0 +1,5 @@
+read_file -format sverilog {input.v}
+analyze -library WORK -format sverilog {input.v}
+compile -map_effort high -ungroup_all
+write -format verilog -output output.v
+exit
